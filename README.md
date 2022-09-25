@@ -36,7 +36,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Sistema
 
-Aplicação backend responsável pelo registro de pagamentos e integração com entidades externas como cartões de crédito e etc.
+Uma Prova de conceito em .NET 6 responsável por validar um projeto arquitetural que tem o intuito de realizar pagamentos integrando com entidades externas como cartões de crédito e etc.
 * Realizar pagamento
 * Cadastrar Cliente
 * Alterar Cliente
