@@ -25,9 +25,6 @@
   <ol>
     <li>
       <a href="#sobre-o-sistema">Sobre o Sistema</a>
-      <ul>
-        <li><a href="#feito-com">Feito Com</a></li>
-      </ul>
     </li>
     <li>
       <a href="#build-local">Build Local</a>
@@ -39,42 +36,19 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## Sobre o Sistema
 
-Chatbot responsável pelo atendimento aos clientes da LOG, onde é possível:
-* Tirar dúvidas frequentes
-* Abrir chamados para solicitar pequenos reparos
-* Abrir chamados para relatar direção perigosa
-* Solicitar Boletos de condominio
-* Solicitar listas de fornecedores do estado de seu condominio
-* Solicitar documentos
+Aplicação backend responsável pelo registro de pagamentos e integração com entidades externas como cartões de crédito e etc.
+* Realizar pagamento
+* Cadastrar Cliente
+* Alterar Cliente
+* Buscar Cliente
+* Consultar pagamento
+* Consultar pagamentos por cliente
+* Consultar pagamentos por cliente e período
 
 ![Big Picture](/docs/big_picture/big_picture.png)
-
-### Feito com
-
-* [AutoFixture](https://github.com/AutoFixture/AutoFixture)
-* [Autofac](https://autofac.org/)
-* [AutoMapper](https://automapper.org/)
-* [Azure.Data.Tables](https://github.com/Azure/azure-sdk-for-net)
-* [Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net)
-* [Bogus](https://github.com/bchavez/Bogus)
-* [coverlet.collector](https://github.com/coverlet-coverage/coverlet)
-* [FluentAssertions](https://github.com/fluentassertions/fluentassertions)
-* [Flurl](https://www.nuget.org/packages/Flurl.Http)
-* [MediatR](https://github.com/jbogard/MediatR)
-* [Moq](https://github.com/moq/moq4)
-* [NCrontab](https://www.nuget.org/packages/NCrontab.Signed)
-* [Newtonsoft.Json](https://www.newtonsoft.com/json)
-* [Polly](https://www.nuget.org/packages/Polly)
-* [System.Linq.Async](https://github.com/dotnet/reactive)
-* [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
-* [System.IdentityModel.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt)
-* [TimeZoneConverter](https://www.nuget.org/packages/TimeZoneConverter)
-* [Xunit](https://xunit.net/)
 
 ## Build Local
 
