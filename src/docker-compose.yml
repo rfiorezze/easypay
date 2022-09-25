@@ -1,0 +1,91 @@
+version: '3.4'
+
+services:
+  mongo:
+    image: mongo
+    volumes:
+    - "/var/lib/mongo:/data/db"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+    - "27017:27017"
+    networks:
+        - easypay
+
+  mongo-payment:
+    image: mongo
+    volumes:
+    - "/var/lib/mongo-payment:/data/db"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+    - "27018:27017"
+    networks:
+        - database_payment
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8075:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_URL: mongodb://root:password@mongo:27017/
+    depends_on:
+        - mongo
+    networks:
+        - easypay
+
+  com.easypay.be.api:
+    image: ${DOCKER_REGISTRY-}comeasypaybeapi
+    build:
+      context: .
+      dockerfile: com.easypay.be/com.easypay.be.api/Dockerfile
+    networks:
+        - easypay
+    depends_on:
+        - rabbitmq
+        - mongo
+    ports:
+      - "5001:80"
+      - "5001:443"
+
+  com.easypay.paymentapi.api:
+    image: ${DOCKER_REGISTRY-}comeasypaypaymentapiapi
+    build:
+      context: .
+      dockerfile: com.easypay.paymentapi/com.easypay.paymentapi.api/Dockerfile
+    networks:
+        - easypay
+        - database_payment
+    depends_on:
+        - rabbitmq
+        - mongo-payment
+        - com.easypay.be.api
+    ports:
+      - "5004:80"
+      - "5004:443"
+
+  rabbitmq: # login guest:guest
+    image: rabbitmq:3-management
+    hostname: "rabbitmq"
+    labels:
+      NAME: "rabbitmq"
+    ports:
+    - "5672:5672"
+    - "15672:15672"
+    networks:
+        - easypay
+
+
+networks:
+  database_be:
+  database_payment:
+  easypay:
+    driver: bridge
+  
