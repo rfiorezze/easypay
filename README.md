@@ -78,5 +78,6 @@ Aplicação backend responsável pelo registro de pagamentos e integração com 
    ```sh
    docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
    ```
-6. * [Api BFF](https://localhost:5001/swagger)
-* [Docker](https://docs.docker.com/get-started/)  
+6. Links das api's abaixo:
+* [Api BFF](https://localhost:5001/swagger)
+* [Api Payment](https://localhost:5004/swagger)  
