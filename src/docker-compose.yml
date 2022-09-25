@@ -41,6 +41,17 @@ services:
     networks:
         - easypay
 
+  rabbitmq: # login guest:guest
+    image: rabbitmq:3-management
+    hostname: "rabbitmq"
+    labels:
+      NAME: "rabbitmq"
+    ports:
+    - "5672:5672"
+    - "15672:15672"
+    networks:
+        - easypay        
+
   com.easypay.be.api:
     image: ${DOCKER_REGISTRY-}comeasypaybeapi
     build:
@@ -70,17 +81,6 @@ services:
     ports:
       - "5004:80"
       - "5004:443"
-
-  rabbitmq: # login guest:guest
-    image: rabbitmq:3-management
-    hostname: "rabbitmq"
-    labels:
-      NAME: "rabbitmq"
-    ports:
-    - "5672:5672"
-    - "15672:15672"
-    networks:
-        - easypay
 
 
 networks:
