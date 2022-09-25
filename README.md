@@ -16,9 +16,6 @@
     Facilitador de Pagamentos.
   </p>
 
-## Selos Qualidade
-[![Selo DevOps][DevOps]][url] [![Selo seguranca][seguranca]][url] [![Selo Governança][governanca]][url] [![Selo Dados][dados]][url] [![Selo Privacidade][privacidade]][url] [![Selo Arch][arch]][url]
-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Indíce</summary>
